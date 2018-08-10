@@ -24,6 +24,9 @@ module.exports = {
     bundle : './src/index.js',
     vendor : VENOR
   },
+  devServer: {
+    port: 8081
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     // [chunkhash]会根据文件是否改动而更换哈希
