@@ -1,4 +1,5 @@
-// addImage.js
+import '../styles/addImage.css'
+
 let smallImg = document.createElement('img')
 // 必须 require 进来
 smallImg.src = require('../images/small.jpeg')
