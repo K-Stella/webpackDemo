@@ -1,4 +1,4 @@
-webpackJsonp([1],{
+webpackJsonp([4],{
 
 /***/ 123:
 /***/ (function(module, exports, __webpack_require__) {
@@ -129,7 +129,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(1601);
+var	fixUrls = __webpack_require__(1598);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -544,13 +544,13 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reduxForm = __webpack_require__(64);
+var _reduxForm = __webpack_require__(74);
 
-var _reactRedux = __webpack_require__(12);
+var _reactRedux = __webpack_require__(14);
 
 var _filters = __webpack_require__(1575);
 
-var _actions = __webpack_require__(44);
+var _actions = __webpack_require__(73);
 
 var actions = _interopRequireWildcard(_actions);
 
@@ -1226,15 +1226,15 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(40);
+var _reactRouter = __webpack_require__(43);
 
-var _reactRedux = __webpack_require__(12);
+var _reactRedux = __webpack_require__(14);
 
 var _Paginator = __webpack_require__(1595);
 
 var _Paginator2 = _interopRequireDefault(_Paginator);
 
-var _actions = __webpack_require__(44);
+var _actions = __webpack_require__(73);
 
 var actions = _interopRequireWildcard(_actions);
 
@@ -1437,9 +1437,9 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(12);
+var _reactRedux = __webpack_require__(14);
 
-var _actions = __webpack_require__(44);
+var _actions = __webpack_require__(73);
 
 var actions = _interopRequireWildcard(_actions);
 
@@ -1584,576 +1584,10 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)(Paginator);
 /***/ 1596:
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(12);
-
-var _reactRouter = __webpack_require__(40);
-
-var _actions = __webpack_require__(44);
-
-var actions = _interopRequireWildcard(_actions);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ArtistDetail = function (_Component) {
-  _inherits(ArtistDetail, _Component);
-
-  function ArtistDetail() {
-    _classCallCheck(this, ArtistDetail);
-
-    return _possibleConstructorReturn(this, (ArtistDetail.__proto__ || Object.getPrototypeOf(ArtistDetail)).apply(this, arguments));
-  }
-
-  _createClass(ArtistDetail, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      this.props.findArtist(this.props.params.id);
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      if (nextProps.params.id !== this.props.params.id) {
-        this.props.findArtist(nextProps.params.id);
-      }
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.props.resetArtist();
-    }
-  }, {
-    key: 'onDeleteClick',
-    value: function onDeleteClick() {
-      this.props.deleteArtist(this.props.params.id);
-    }
-  }, {
-    key: 'renderAlbums',
-    value: function renderAlbums() {
-      var albums = this.props.artist.albums;
-
-
-      if (!albums || !albums.map) {
-        return;
-      }
-
-      return albums.map(function (album) {
-        return _react2.default.createElement(
-          'div',
-          { className: 'card album', key: album.title },
-          _react2.default.createElement(
-            'div',
-            { className: 'card-image' },
-            _react2.default.createElement('img', { src: album.image }),
-            _react2.default.createElement(
-              'span',
-              { className: 'card-title' },
-              _react2.default.createElement(
-                'h4',
-                null,
-                album.title
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'card-content' },
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'h5',
-                null,
-                album.copiesSold
-              ),
-              _react2.default.createElement(
-                'i',
-                null,
-                'copies sold'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'h5',
-                null,
-                album.numberTracks
-              ),
-              _react2.default.createElement(
-                'i',
-                null,
-                'tracks'
-              )
-            )
-          )
-        );
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      if (!this.props.artist) {
-        return _react2.default.createElement(
-          'div',
-          null,
-          'Todo: implement "FindArtist" query'
-        );
-      }
-
-      var _props$artist = this.props.artist,
-          name = _props$artist.name,
-          age = _props$artist.age,
-          genre = _props$artist.genre,
-          image = _props$artist.image,
-          yearsActive = _props$artist.yearsActive,
-          netWorth = _props$artist.netWorth,
-          labelName = _props$artist.labelName,
-          _id = _props$artist._id;
-
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'div',
-          { className: 'spacer' },
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/' },
-            'Back'
-          ),
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/artists/' + _id + '/edit' },
-            'Edit'
-          ),
-          _react2.default.createElement(
-            'a',
-            { onClick: this.onDeleteClick.bind(this) },
-            'Delete'
-          )
-        ),
-        _react2.default.createElement(
-          'ul',
-          { className: 'collection artist-detail' },
-          _react2.default.createElement(
-            'li',
-            { className: 'collection-item header' },
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'h3',
-                null,
-                name
-              ),
-              _react2.default.createElement(
-                'h5',
-                null,
-                'Master of ',
-                genre
-              )
-            ),
-            _react2.default.createElement('image', { src: image, className: 'right' })
-          ),
-          _react2.default.createElement(
-            'li',
-            { className: 'collection-item' },
-            _react2.default.createElement(
-              'h5',
-              null,
-              yearsActive
-            ),
-            _react2.default.createElement(
-              'p',
-              null,
-              _react2.default.createElement(
-                'i',
-                null,
-                'Years Active'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            { className: 'collection-item' },
-            _react2.default.createElement(
-              'h5',
-              null,
-              age
-            ),
-            _react2.default.createElement(
-              'p',
-              null,
-              _react2.default.createElement(
-                'i',
-                null,
-                'Years Old'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            { className: 'collection-item' },
-            _react2.default.createElement(
-              'h5',
-              null,
-              '$',
-              netWorth
-            ),
-            _react2.default.createElement(
-              'p',
-              null,
-              _react2.default.createElement(
-                'i',
-                null,
-                'Net Worth'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            { className: 'collection-item' },
-            _react2.default.createElement(
-              'h5',
-              null,
-              labelName
-            ),
-            _react2.default.createElement(
-              'p',
-              null,
-              _react2.default.createElement(
-                'i',
-                null,
-                'Label'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            { className: 'flex wrap' },
-            this.renderAlbums()
-          )
-        )
-      );
-    }
-  }]);
-
-  return ArtistDetail;
-}(_react.Component);
-
-var mapStateToProps = function mapStateToProps(_ref) {
-  var artists = _ref.artists;
-
-  return { artist: artists.artist };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)(ArtistDetail);
-
-/***/ }),
-
-/***/ 1597:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(12);
-
-var _reduxForm = __webpack_require__(64);
-
-var _actions = __webpack_require__(44);
-
-var actions = _interopRequireWildcard(_actions);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ArtistCreate = function (_Component) {
-  _inherits(ArtistCreate, _Component);
-
-  function ArtistCreate() {
-    _classCallCheck(this, ArtistCreate);
-
-    return _possibleConstructorReturn(this, (ArtistCreate.__proto__ || Object.getPrototypeOf(ArtistCreate)).apply(this, arguments));
-  }
-
-  _createClass(ArtistCreate, [{
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.props.clearError();
-    }
-  }, {
-    key: 'onSubmit',
-    value: function onSubmit(formProps) {
-      this.props.createArtist(formProps);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var handleSubmit = this.props.handleSubmit;
-
-
-      return _react2.default.createElement(
-        'form',
-        { onSubmit: handleSubmit(this.onSubmit.bind(this)) },
-        _react2.default.createElement(
-          'div',
-          { className: 'input-field' },
-          _react2.default.createElement(_reduxForm.Field, { name: 'name', component: 'input', placeholder: 'Name' })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'input-field' },
-          _react2.default.createElement(_reduxForm.Field, { name: 'age', component: 'input', placeholder: 'Age' })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'input-field' },
-          _react2.default.createElement(_reduxForm.Field, { name: 'yearsActive', component: 'input', placeholder: 'Years Active' })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'input-field' },
-          _react2.default.createElement(_reduxForm.Field, { name: 'genre', component: 'input', placeholder: 'Genre' })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'has-error' },
-          this.props.errorMessage
-        ),
-        _react2.default.createElement(
-          'button',
-          { className: 'btn' },
-          'Submit'
-        )
-      );
-    }
-  }]);
-
-  return ArtistCreate;
-}(_react.Component);
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    errorMessage: state.errors
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)((0, _reduxForm.reduxForm)({
-  form: 'create'
-})(ArtistCreate));
-
-/***/ }),
-
-/***/ 1598:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(12);
-
-var _actions = __webpack_require__(44);
-
-var actions = _interopRequireWildcard(_actions);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ArtistEdit = function (_Component) {
-  _inherits(ArtistEdit, _Component);
-
-  function ArtistEdit(props) {
-    _classCallCheck(this, ArtistEdit);
-
-    var _this = _possibleConstructorReturn(this, (ArtistEdit.__proto__ || Object.getPrototypeOf(ArtistEdit)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(ArtistEdit, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      this.props.findArtist(this.props.params.id);
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(_ref) {
-      var artist = _ref.artist;
-
-      if (artist) {
-        var name = artist.name,
-            age = artist.age,
-            yearsActive = artist.yearsActive,
-            genre = artist.genre;
-
-
-        this.setState({ name: name, age: age, yearsActive: yearsActive, genre: genre });
-      }
-    }
-  }, {
-    key: 'componentWillUpdate',
-    value: function componentWillUpdate(nextProps) {
-      if (nextProps.params.id !== this.props.params.id) {
-        this.props.findArtist(nextProps.params.id);
-      }
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.props.clearError();
-    }
-  }, {
-    key: 'onSubmit',
-    value: function onSubmit(event) {
-      event.preventDefault();
-      event.stopPropagation();
-
-      this.props.editArtist(this.props.params.id, this.state);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement(
-        'form',
-        { onSubmit: this.onSubmit.bind(this) },
-        _react2.default.createElement(
-          'div',
-          { className: 'input-field' },
-          _react2.default.createElement('input', {
-            value: this.state.name,
-            onChange: function onChange(e) {
-              return _this2.setState({ name: e.target.value });
-            },
-            placeholder: 'Name'
-          })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'input-field' },
-          _react2.default.createElement('input', {
-            value: this.state.age,
-            onChange: function onChange(e) {
-              return _this2.setState({ age: e.target.value });
-            },
-            placeholder: 'Age'
-          })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'input-field' },
-          _react2.default.createElement('input', {
-            value: this.state.yearsActive,
-            onChange: function onChange(e) {
-              return _this2.setState({ yearsActive: e.target.value });
-            },
-            placeholder: 'Years Active'
-          })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'input-field' },
-          _react2.default.createElement('input', {
-            value: this.state.genre,
-            onChange: function onChange(e) {
-              return _this2.setState({ genre: e.target.value });
-            },
-            placeholder: 'Genre'
-          })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'has-error' },
-          this.props.errorMessage
-        ),
-        _react2.default.createElement(
-          'button',
-          { className: 'btn' },
-          'Submit'
-        )
-      );
-    }
-  }]);
-
-  return ArtistEdit;
-}(_react.Component);
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    artist: state.artists.artist,
-    errorMessage: state.errors
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)(ArtistEdit);
-
-/***/ }),
-
-/***/ 1599:
-/***/ (function(module, exports, __webpack_require__) {
-
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1600);
+var content = __webpack_require__(1597);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -2179,7 +1613,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 1600:
+/***/ 1597:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(123)(false);
@@ -2194,7 +1628,7 @@ exports.push([module.i, "/*!\n * Materialize v0.97.8 (http://materializecss.com)
 
 /***/ }),
 
-/***/ 1601:
+/***/ 1598:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2290,13 +1724,13 @@ module.exports = function (css) {
 
 /***/ }),
 
-/***/ 1602:
+/***/ 1599:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1603);
+var content = __webpack_require__(1600);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -2322,7 +1756,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 1603:
+/***/ 1600:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(123)(false);
@@ -2337,13 +1771,13 @@ exports.push([module.i, ".InputRange-slider {\n  -webkit-appearance: none;\n    
 
 /***/ }),
 
-/***/ 1604:
+/***/ 1601:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1605);
+var content = __webpack_require__(1602);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -2369,7 +1803,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 1605:
+/***/ 1602:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(123)(false);
@@ -2417,7 +1851,7 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _redux = __webpack_require__(38);
 
-var _reactRedux = __webpack_require__(12);
+var _reactRedux = __webpack_require__(14);
 
 var _reduxThunk = __webpack_require__(163);
 
@@ -2431,11 +1865,11 @@ var _router = __webpack_require__(498);
 
 var _router2 = _interopRequireDefault(_router);
 
+__webpack_require__(1596);
+
 __webpack_require__(1599);
 
-__webpack_require__(1602);
-
-__webpack_require__(1604);
+__webpack_require__(1601);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2535,7 +1969,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(38);
 
-var _reduxForm = __webpack_require__(64);
+var _reduxForm = __webpack_require__(74);
 
 var _FilterCriteriaReducer = __webpack_require__(494);
 
@@ -2565,7 +1999,389 @@ exports.default = (0, _redux.combineReducers)({
 
 /***/ }),
 
-/***/ 44:
+/***/ 494:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _lodash = __webpack_require__(10);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _types = __webpack_require__(52);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var INITIAL_STATE = {
+  age: { min: 0, max: 100 }
+};
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _types.SET_AGE_RANGE:
+      return _lodash2.default.extend({}, state, { age: action.payload });
+    case _types.SET_YEARS_ACTIVE_RANGE:
+      return _lodash2.default.extend({}, state, { yearsActive: action.payload });
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+
+/***/ 495:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _lodash = __webpack_require__(10);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _types = __webpack_require__(52);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var INITIAL_STATE = {
+  all: [],
+  offset: 0,
+  limit: 20,
+  count: 0
+};
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _types.SEARCH_ARTISTS:
+      return _lodash2.default.extend({}, state, {
+        count: action.payload.length,
+        all: action.payload
+      });
+    case _types.FIND_ARTIST:
+      return _lodash2.default.extend({}, state, { artist: action.payload });
+    case _types.RESET_ARTIST:
+      return _lodash2.default.extend({}, state, { artist: null });
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+
+/***/ 496:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _types = __webpack_require__(52);
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _types.CREATE_ERROR:
+      return 'There was an error inserting this record';
+    case _types.CLEAR_ERROR:
+      return '';
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+
+/***/ 497:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _lodash = __webpack_require__(10);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _types = __webpack_require__(52);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _types.SELECT_ARTIST:
+      return [].concat(_toConsumableArray(state), [action.payload]);
+    case _types.DESELECT_ARTIST:
+      return _lodash2.default.without(state, action.payload);
+    case _types.RESET_SELECTION:
+      return [];
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+
+/***/ 498:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = __webpack_require__(43);
+
+var _Home = __webpack_require__(524);
+
+var _Home2 = _interopRequireDefault(_Home);
+
+var _ArtistMain = __webpack_require__(1573);
+
+var _ArtistMain2 = _interopRequireDefault(_ArtistMain);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// 注意在最新版的 V4路由版本中，更改了按需加载的方式，如果安装了 V4版，可以自行前往官网学习
+var rootRoute = {
+  component: _Home2.default,
+  path: '/',
+  indexRoute: { component: _ArtistMain2.default },
+  childRoutes: [{
+    path: 'artists/new',
+    getComponent: function getComponent(location, cb) {
+      __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 1604)).then(function (module) {
+        return cb(null, module.default);
+      });
+    }
+  }, {
+    path: 'artists/:id/edit',
+    getComponent: function getComponent(location, cb) {
+      __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 1605)).then(function (module) {
+        return cb(null, module.default);
+      });
+    }
+  }, {
+    path: 'artists/:id',
+    getComponent: function getComponent(location, cb) {
+      __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 1606)).then(function (module) {
+        return cb(null, module.default);
+      });
+    }
+  }]
+};
+
+var Routes = function Routes() {
+  return _react2.default.createElement(_reactRouter.Router, { history: _reactRouter.hashHistory, routes: rootRoute });
+};
+
+exports.default = Routes;
+
+/***/ }),
+
+/***/ 52:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var SET_AGE_RANGE = exports.SET_AGE_RANGE = 'set_age_range';
+var SET_YEARS_ACTIVE_RANGE = exports.SET_YEARS_ACTIVE_RANGE = 'SET_YEARS_ACTIVE_RANGE';
+var SEARCH_ARTISTS = exports.SEARCH_ARTISTS = 'SEARCH_ARTISTS';
+var FIND_ARTIST = exports.FIND_ARTIST = 'FIND_ARTIST';
+var RESET_ARTIST = exports.RESET_ARTIST = 'RESET_ARTIST';
+var CREATE_ERROR = exports.CREATE_ERROR = 'CREATE_ERROR';
+var CLEAR_ERROR = exports.CLEAR_ERROR = 'CLEAR_ERROR';
+var SELECT_ARTIST = exports.SELECT_ARTIST = 'SELECT_ARTIST';
+var DESELECT_ARTIST = exports.DESELECT_ARTIST = 'DESELECT_ARTIST';
+var RESET_SELECTION = exports.RESET_SELECTION = 'RESET_SELECTION';
+
+/***/ }),
+
+/***/ 524:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Header = __webpack_require__(525);
+
+var _Header2 = _interopRequireDefault(_Header);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Home = function Home(_ref) {
+  var children = _ref.children;
+
+  return _react2.default.createElement(
+    'div',
+    { className: 'container' },
+    _react2.default.createElement(_Header2.default, null),
+    children
+  );
+};
+
+exports.default = Home;
+
+/***/ }),
+
+/***/ 525:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = __webpack_require__(43);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var db = __webpack_require__(20);
+
+var Header = function (_Component) {
+  _inherits(Header, _Component);
+
+  function Header(props) {
+    _classCallCheck(this, Header);
+
+    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+
+    _this.state = { id: null };
+    return _this;
+  }
+
+  _createClass(Header, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.setLink();
+    }
+  }, {
+    key: 'setLink',
+    value: function setLink() {
+      var index = _.random(0, db.length);
+      this.setState({ id: index });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement(
+          'nav',
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'nav-wrapper' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col s12' },
+              _react2.default.createElement(
+                'a',
+                { href: '#', className: 'brand-logo' },
+                'UpStar Music'
+              ),
+              _react2.default.createElement(
+                'ul',
+                { id: 'nav-mobile', className: 'right hide-on-med-and-down' },
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    {
+                      to: '/artists/' + this.state.id,
+                      onClick: this.setLink.bind(this)
+                    },
+                    'Random Artist'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/artists/new' },
+                    'Create Artist'
+                  )
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Header;
+}(_react.Component);
+
+;
+
+exports.default = Header;
+
+/***/ }),
+
+/***/ 73:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2580,9 +2396,9 @@ var _lodash = __webpack_require__(10);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _reactRouter = __webpack_require__(40);
+var _reactRouter = __webpack_require__(43);
 
-var _types = __webpack_require__(53);
+var _types = __webpack_require__(52);
 
 var _GetAgeRange = __webpack_require__(1585);
 
@@ -2820,382 +2636,6 @@ var refreshSearch = function refreshSearch(dispatch, getState) {
 
   dispatch(searchArtists(_lodash2.default.extend({}, { name: '' }, criteria), offset, limit));
 };
-
-/***/ }),
-
-/***/ 494:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _lodash = __webpack_require__(10);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _types = __webpack_require__(53);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var INITIAL_STATE = {
-  age: { min: 0, max: 100 }
-};
-
-exports.default = function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
-  var action = arguments[1];
-
-  switch (action.type) {
-    case _types.SET_AGE_RANGE:
-      return _lodash2.default.extend({}, state, { age: action.payload });
-    case _types.SET_YEARS_ACTIVE_RANGE:
-      return _lodash2.default.extend({}, state, { yearsActive: action.payload });
-    default:
-      return state;
-  }
-};
-
-/***/ }),
-
-/***/ 495:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _lodash = __webpack_require__(10);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _types = __webpack_require__(53);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var INITIAL_STATE = {
-  all: [],
-  offset: 0,
-  limit: 20,
-  count: 0
-};
-
-exports.default = function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
-  var action = arguments[1];
-
-  switch (action.type) {
-    case _types.SEARCH_ARTISTS:
-      return _lodash2.default.extend({}, state, {
-        count: action.payload.length,
-        all: action.payload
-      });
-    case _types.FIND_ARTIST:
-      return _lodash2.default.extend({}, state, { artist: action.payload });
-    case _types.RESET_ARTIST:
-      return _lodash2.default.extend({}, state, { artist: null });
-    default:
-      return state;
-  }
-};
-
-/***/ }),
-
-/***/ 496:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _types = __webpack_require__(53);
-
-exports.default = function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  var action = arguments[1];
-
-  switch (action.type) {
-    case _types.CREATE_ERROR:
-      return 'There was an error inserting this record';
-    case _types.CLEAR_ERROR:
-      return '';
-    default:
-      return state;
-  }
-};
-
-/***/ }),
-
-/***/ 497:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _lodash = __webpack_require__(10);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _types = __webpack_require__(53);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-exports.default = function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var action = arguments[1];
-
-  switch (action.type) {
-    case _types.SELECT_ARTIST:
-      return [].concat(_toConsumableArray(state), [action.payload]);
-    case _types.DESELECT_ARTIST:
-      return _lodash2.default.without(state, action.payload);
-    case _types.RESET_SELECTION:
-      return [];
-    default:
-      return state;
-  }
-};
-
-/***/ }),
-
-/***/ 498:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = __webpack_require__(40);
-
-var _Home = __webpack_require__(524);
-
-var _Home2 = _interopRequireDefault(_Home);
-
-var _ArtistMain = __webpack_require__(1573);
-
-var _ArtistMain2 = _interopRequireDefault(_ArtistMain);
-
-var _ArtistDetail = __webpack_require__(1596);
-
-var _ArtistDetail2 = _interopRequireDefault(_ArtistDetail);
-
-var _ArtistCreate = __webpack_require__(1597);
-
-var _ArtistCreate2 = _interopRequireDefault(_ArtistCreate);
-
-var _ArtistEdit = __webpack_require__(1598);
-
-var _ArtistEdit2 = _interopRequireDefault(_ArtistEdit);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Routes = function Routes() {
-  return _react2.default.createElement(
-    _reactRouter.Router,
-    { history: _reactRouter.hashHistory },
-    _react2.default.createElement(
-      _reactRouter.Route,
-      { path: '/', component: _Home2.default },
-      _react2.default.createElement(_reactRouter.IndexRoute, { component: _ArtistMain2.default }),
-      _react2.default.createElement(_reactRouter.Route, { path: 'artists/new', component: _ArtistCreate2.default }),
-      _react2.default.createElement(_reactRouter.Route, { path: 'artists/:id', component: _ArtistDetail2.default }),
-      _react2.default.createElement(_reactRouter.Route, { path: 'artists/:id/edit', component: _ArtistEdit2.default })
-    )
-  );
-};
-
-exports.default = Routes;
-
-/***/ }),
-
-/***/ 524:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Header = __webpack_require__(525);
-
-var _Header2 = _interopRequireDefault(_Header);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Home = function Home(_ref) {
-  var children = _ref.children;
-
-  return _react2.default.createElement(
-    'div',
-    { className: 'container' },
-    _react2.default.createElement(_Header2.default, null),
-    children
-  );
-};
-
-exports.default = Home;
-
-/***/ }),
-
-/***/ 525:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = __webpack_require__(40);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var db = __webpack_require__(20);
-
-var Header = function (_Component) {
-  _inherits(Header, _Component);
-
-  function Header(props) {
-    _classCallCheck(this, Header);
-
-    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
-
-    _this.state = { id: null };
-    return _this;
-  }
-
-  _createClass(Header, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      this.setLink();
-    }
-  }, {
-    key: 'setLink',
-    value: function setLink() {
-      var index = _.random(0, db.length);
-      this.setState({ id: index });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'row' },
-        _react2.default.createElement(
-          'nav',
-          null,
-          _react2.default.createElement(
-            'div',
-            { className: 'nav-wrapper' },
-            _react2.default.createElement(
-              'div',
-              { className: 'col s12' },
-              _react2.default.createElement(
-                'a',
-                { href: '#', className: 'brand-logo' },
-                'UpStar Music'
-              ),
-              _react2.default.createElement(
-                'ul',
-                { id: 'nav-mobile', className: 'right hide-on-med-and-down' },
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    {
-                      to: '/artists/' + this.state.id,
-                      onClick: this.setLink.bind(this)
-                    },
-                    'Random Artist'
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  null,
-                  _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/artists/new' },
-                    'Create Artist'
-                  )
-                )
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return Header;
-}(_react.Component);
-
-;
-
-exports.default = Header;
-
-/***/ }),
-
-/***/ 53:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var SET_AGE_RANGE = exports.SET_AGE_RANGE = 'set_age_range';
-var SET_YEARS_ACTIVE_RANGE = exports.SET_YEARS_ACTIVE_RANGE = 'SET_YEARS_ACTIVE_RANGE';
-var SEARCH_ARTISTS = exports.SEARCH_ARTISTS = 'SEARCH_ARTISTS';
-var FIND_ARTIST = exports.FIND_ARTIST = 'FIND_ARTIST';
-var RESET_ARTIST = exports.RESET_ARTIST = 'RESET_ARTIST';
-var CREATE_ERROR = exports.CREATE_ERROR = 'CREATE_ERROR';
-var CLEAR_ERROR = exports.CLEAR_ERROR = 'CLEAR_ERROR';
-var SELECT_ARTIST = exports.SELECT_ARTIST = 'SELECT_ARTIST';
-var DESELECT_ARTIST = exports.DESELECT_ARTIST = 'DESELECT_ARTIST';
-var RESET_SELECTION = exports.RESET_SELECTION = 'RESET_SELECTION';
 
 /***/ })
 

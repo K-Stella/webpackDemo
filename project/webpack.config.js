@@ -49,7 +49,7 @@ module.exports = {
       // 配置mainfest文件使用
       minChunks: Infinity
     }),
-    new CleanWebpackPlugin(['dist/bundle.*.js','dist/mainfest.*.js'],{
+    new CleanWebpackPlugin(['dist/*.js'],{
       verbose: true,
       dry: false
     }),
